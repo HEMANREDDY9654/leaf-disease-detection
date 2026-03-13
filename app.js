@@ -10,7 +10,7 @@ if (!supabase) console.error("Supabase library not found!");
 // ============================
 // GEMINI AI INITIALIZATION
 // ============================
-const GEMINI_API_KEY = 'AIzaSyAR0XOcXaK-lpzO6zy1ryfi0SOOycnZxKo';
+const GEMINI_API_KEY = 'AIzaSyBagZpSZHwr33hb_ypFoQT5PSKwPa97KE4';
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const geminiModel = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 console.log('✅ Gemini AI initialized');
