@@ -129,11 +129,7 @@ loginBtn.onclick = async () => {
     if (!supabase) return alert("Supabase not initialized.");
     try {
         const { error } = await supabase.auth.signInWithOAuth({
-            provider: 'google',
-            options: {
-                // Ensure to redirect back to the app, use protocol and host correctly
-                redirectTo: window.location.origin
-            }
+            provider: 'google'
         });
         if (error) throw error;
     } catch (e) {
