@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Training Tool - AgriGuard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .trainer-container {
+            padding: 4rem 10%;
+        }
+
+        .class-card {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 2px solid #eee;
+            border-radius: 16px;
+        }
+
+        .image-previews {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .training-status {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #e8f5e9;
+            border-radius: 12px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Agri<span>Guard</span> Trainer</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to App</a></li>
+        </ul>
+    </nav>
+
+    <main class="trainer-container">
+        <h1>Custom AI Model Trainer</h1>
+        <p>Upload your own images to teach the AI how to recognize specific diseases.</p>
+
+        <div id="training-sections">
+            <!-- Dynamic Classes -->
+            <div class="class-card glass-card">
+                <h3>Class 1: Healthy Leaf (<span id="count-0">0</span> images)</h3>
+                <p class="desc">Select multiple files (Hold Ctrl/Cmd to pick more than one)</p>
+                <input type="file" multiple accept="image/*" onchange="handleImageUpload(event, 0)">
+                <div class="image-previews" id="preview-0"></div>
+            </div>
+
+            <div class="class-card glass-card">
+                <h3>Class 2: Diseased Leaf (<span id="count-1">0</span> images)</h3>
+                <p class="desc">Select multiple files (Hold Ctrl/Cmd to pick more than one)</p>
+                <input type="file" multiple accept="image/*" onchange="handleImageUpload(event, 1)">
+                <div class="image-previews" id="preview-1"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="add-class" class="btn-secondary">Add Another Disease Category</button>
+            <button id="train-btn" class="btn-primary">Train My AI Model</button>
+            <button id="download-btn" class="btn-cta hidden">Download Trained Model</button>
+        </div>
+
+        <div id="status" class="training-status hidden">
+            <strong>Status:</strong> <span id="status-text">Ready to train...</span>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier@latest"></script>
+
+    <script type="module" src="trainer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGuard - AI Crop Disease Detection Platform</title>
+    <meta name="description"
+        content="AI-based agricultural platform for farmers — detect plant diseases, get treatment guides, track crop health, and connect with the farming community.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ========== LANDING PAGE (Before Login) ========== -->
+    <div id="landing-page">
+        <nav id="landing-nav">
+            <div class="logo">Agri<span>Guard</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#features-section">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li id="auth-buttons">
+                    <button id="login-btn" class="btn-primary">Login with Google</button>
+                </li>
+            </ul>
+        </nav>
+
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Protect Your Crops with <span>AI Intelligence</span></h1>
+                <p>India's smart agricultural platform — detect plant diseases instantly, get expert treatment advice,
+                    and connect with the farming community.</p>
+                <div class="hero-actions">
+                    <button class="btn-cta" onclick="document.getElementById('login-btn').click()">Get Started
+                        Free</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">38+</span><span class="stat-label">Diseases
+                            Detected</span></div>
+                    <div class="stat-item"><span class="stat-number">12+</span><span class="stat-label">Crop
+                            Species</span></div>
+                    <div class="stat-item"><span class="stat-number">AI</span><span class="stat-label">Powered by
+                            Gemini</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="glass-card hero-card">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=1000&auto=format&fit=crop"
+                        alt="Healthy Crops">
+                </div>
+            </div>
+        </section>
+
+        <section id="features-section">
+            <h2>Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card glass-card">
+                    <span class="feature-icon">🔬</span>
+                    <h3>AI Disease Detection</h3>
+                    <p>Upload a leaf image and get instant disease diagnosis powered by Google Gemini AI.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feature-icon">💊</span>
+                    <h3>Treatment Guides</h3>
+                    <p>Get organic and chemical treatment options with proper dosage for every disease.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Health Tracker</h3>
+                    <p>Track your crop health history and monitor disease patterns over time.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feature-icon">📚</span>
+                    <h3>Plant Library</h3>
+                    <p>Learn about watering, fertilizers, sunlight, and common diseases for crops.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feature-icon">💬</span>
+                    <h3>Community Forum</h3>
+                    <p>Connect with other farmers, share advice, and ask questions about crop care.</p>
+                </div>
+                <div class="feature-card glass-card">
+                    <span class="feature-icon">🌾</span>
+                    <h3>Crop Advisor</h3>
+                    <p>Get AI-powered crop recommendations based on your soil type and location.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Our Mission</h2>
+            <p>Empowering small and marginal farmers with technology. AgriGuard bridges the gap between rural farms and
+                agricultural expertise, reducing crop losses and improving farmer incomes across India.</p>
+        </section>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">Agri<span>Guard</span></div>
+                    <p>Supporting farmers for a sustainable future.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: support@agriguard.com</p>
+                    <p>Phone: +91 800-456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 AgriGuard. Built for Indian Farmers.
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========== APP DASHBOARD (After Login) ========== -->
+    <div id="app-dashboard" class="hidden">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Agri<span>Guard</span></div>
+            </div>
+            <div class="sidebar-user">
+                <img id="user-photo" src="" alt="Profile">
+                <span id="user-name">Farmer</span>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-section="detect">
+                    <span class="nav-icon">🔬</span> Detect Disease
+                </button>
+                <button class="nav-item" data-section="history">
+                    <span class="nav-icon">📊</span> History
+                </button>
+                <button class="nav-item" data-section="library">
+                    <span class="nav-icon">📚</span> Plant Library
+                </button>
+                <button class="nav-item" data-section="community">
+                    <span class="nav-icon">💬</span> Community
+                </button>
+                <button class="nav-item" data-section="cropadvisor">
+                    <span class="nav-icon">🌾</span> Crop Advisor
+                </button>
+                <button class="nav-item" data-section="admin" id="admin-nav-btn" style="display:none;">
+                    <span class="nav-icon">🔧</span> Admin
+                </button>
+            </nav>
+            <button id="logout-btn" class="btn-logout">Logout</button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+
+            <!-- ===== Section 1: Disease Detection ===== -->
+            <section id="sec-detect" class="app-section active">
+                <div class="section-header">
+                    <h2>🔬 AI Disease Detection</h2>
+                    <p>Upload a photo of the affected plant leaf for instant diagnosis</p>
+                </div>
+                <div class="detect-grid">
+                    <div class="panel glass-card upload-panel">
+                        <h3>Upload Image</h3>
+                        <div class="upload-area" id="drop-zone">
+                            <div class="upload-placeholder" id="upload-placeholder">
+                                <span class="upload-icon">📸</span>
+                                <p>Click or drag image of affected crop leaf</p>
+                                <span class="upload-hint">Supports JPG, PNG • Max 10MB</span>
+                            </div>
+                            <input type="file" id="file-input" accept="image/*" hidden>
+                            <img id="preview-img" class="hidden" alt="Preview">
+                        </div>
+                        <button id="diagnose-btn" class="btn-primary full-width" disabled>
+                            Run AI Diagnosis
+                        </button>
+                    </div>
+
+                    <div id="result-panel" class="panel glass-card result-panel hidden">
+                        <div class="result-header">
+                            <h3>Diagnosis Result</h3>
+                            <span id="result-badge" class="badge">Processing...</span>
+                        </div>
+                        <div class="result-body">
+                            <div id="result-plant-name" class="result-plant hidden">
+                                <span class="label">Plant:</span> <span id="plant-name-text">—</span>
+                            </div>
+                            <h4 id="disease-name">Detecting...</h4>
+                            <div id="confidence-bar-container" class="confidence-container hidden">
+                                <span>Confidence:</span>
+                                <div class="confidence-bar">
+                                    <div id="confidence-fill" class="confidence-fill"></div>
+                                </div>
+                                <span id="confidence-text">0%</span>
+                            </div>
+                            <p id="disease-description" class="disease-desc"></p>
+
+                            <div class="treatment-info" id="treatment-section">
+                                <div class="treatment-block">
+                                    <h5>🦠 Cause</h5>
+                                    <p id="causes-text"></p>
+                                </div>
+                                <div class="treatment-block">
+                                    <h5>🌿 Organic Treatment</h5>
+                                    <p id="organic-treatment-text"></p>
+                                </div>
+                                <div class="treatment-block">
+                                    <h5>🧪 Chemical Treatment</h5>
+                                    <p id="chemical-treatment-text"></p>
+                                </div>
+                                <div class="treatment-block">
+                                    <h5>🛡️ Prevention</h5>
+                                    <p id="prevention-text"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Section 2: Disease History ===== -->
+            <section id="sec-history" class="app-section">
+                <div class="section-header">
+                    <h2>📊 Disease History Tracker</h2>
+                    <p>Review your past crop health records</p>
+                </div>
+                <div class="history-stats" id="history-stats">
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="stat-total">0</span>
+                        <span class="stat-label">Total Scans</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="stat-diseases">0</span>
+                        <span class="stat-label">Diseases Found</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="stat-healthy">0</span>
+                        <span class="stat-label">Healthy Plants</span>
+                    </div>
+                </div>
+                <div class="panel glass-card">
+                    <div class="table-header">
+                        <h3>Scan History</h3>
+                    </div>
+                    <table class="data-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Plant</th>
+                                <th>Disease</th>
+                                <th>Confidence</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-tbody">
+                            <tr>
+                                <td colspan="5" class="empty-state">No scan history yet. Start by scanning a plant
+                                    leaf!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== Section 3: Plant Care Library ===== -->
+            <section id="sec-library" class="app-section">
+                <div class="section-header">
+                    <h2>📚 Plant Care Library</h2>
+                    <p>Learn how to care for common crops</p>
+                </div>
+                <div class="library-search">
+                    <input type="text" id="library-search-input" placeholder="Search crops..." class="search-input">
+                </div>
+                <div class="library-grid" id="library-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- ===== Section 4: Community Forum ===== -->
+            <section id="sec-community" class="app-section">
+                <div class="section-header">
+                    <h2>💬 Farmer Community</h2>
+                    <p>Ask questions, share advice, help fellow farmers</p>
+                </div>
+                <div class="community-layout">
+                    <div class="panel glass-card new-post-panel">
+                        <h3>Create Post</h3>
+                        <textarea id="post-text" placeholder="Ask a question or share your experience..."
+                            rows="3"></textarea>
+                        <div class="post-actions">
+                            <label class="btn-secondary upload-img-btn">
+                                📷 Add Image
+                                <input type="file" id="post-image-input" accept="image/*" hidden>
+                            </label>
+                            <img id="post-image-preview" class="post-img-preview hidden" alt="Preview">
+                            <button id="submit-post-btn" class="btn-primary">Post</button>
+                        </div>
+                    </div>
+                    <div id="posts-container">
+                        <p class="empty-state">No posts yet. Be the first to share!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Section 5: Crop Advisor ===== -->
+            <section id="sec-cropadvisor" class="app-section">
+                <div class="section-header">
+                    <h2>🌾 AI Crop Recommendation</h2>
+                    <p>Get personalized crop suggestions based on your conditions</p>
+                </div>
+                <div class="advisor-layout">
+                    <div class="panel glass-card advisor-form-panel">
+                        <h3>Enter Your Details</h3>
+                        <div class="form-group">
+                            <label for="soil-type">Soil Type</label>
+                            <select id="soil-type">
+                                <option value="">Select soil type...</option>
+                                <option value="Alluvial">Alluvial Soil</option>
+                                <option value="Black (Regur)">Black Soil (Regur)</option>
+                                <option value="Red">Red Soil</option>
+                                <option value="Laterite">Laterite Soil</option>
+                                <option value="Sandy">Sandy Soil</option>
+                                <option value="Clay">Clay Soil</option>
+                                <option value="Loamy">Loamy Soil</option>
+                                <option value="Saline">Saline Soil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location-input">Location / Region</label>
+                            <input type="text" id="location-input" placeholder="e.g., Punjab, Andhra Pradesh...">
+                        </div>
+                        <div class="form-group">
+                            <label for="season-select">Season</label>
+                            <select id="season-select">
+                                <option value="">Select season...</option>
+                                <option value="Kharif (Monsoon)">Kharif (June–Oct)</option>
+                                <option value="Rabi (Winter)">Rabi (Oct–Mar)</option>
+                                <option value="Zaid (Summer)">Zaid (Mar–Jun)</option>
+                            </select>
+                        </div>
+                        <button id="recommend-btn" class="btn-primary full-width">Get AI Recommendations</button>
+                    </div>
+                    <div id="recommendations-panel" class="panel glass-card hidden">
+                        <h3>Recommended Crops</h3>
+                        <div id="recommendations-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Section 6: Admin Dashboard ===== -->
+            <section id="sec-admin" class="app-section">
+                <div class="section-header">
+                    <h2>🔧 Admin Dashboard</h2>
+                    <p>Platform overview and management</p>
+                </div>
+                <div class="admin-stats" id="admin-stats">
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="admin-total-scans">0</span>
+                        <span class="stat-label">Total Scans</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="admin-total-users">0</span>
+                        <span class="stat-label">Total Users</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="admin-total-posts">0</span>
+                        <span class="stat-label">Forum Posts</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-number" id="admin-top-disease">—</span>
+                        <span class="stat-label">Top Disease</span>
+                    </div>
+                </div>
+                <div class="admin-grid">
+                    <div class="panel glass-card">
+                        <h3>Recent Scans</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Date</th>
+                                    <th>Disease</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-scans-tbody">
+                                <tr>
+                                    <td colspan="3" class="empty-state">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel glass-card">
+                        <h3>Registered Users</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Joined</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-users-tbody">
+                                <tr>
+                                    <td colspan="4" class="empty-state">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- History Detail Modal -->
+    <div id="history-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3>Scan Details</h3>
+                <button class="modal-close" id="close-history-modal">&times;</button>
+            </div>
+            <div id="history-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Gemini AI SDK -->
+    <script type="importmap">
+        { "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }
+    </script>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
